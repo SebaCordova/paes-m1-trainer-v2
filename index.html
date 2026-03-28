@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>PAES M1 Trainer</title>
+</head>
+<body style="font-family: Arial; padding: 20px;">
+
+<h1>PAES M1 Trainer 🚀</h1>
+
+<div id="app"></div>
+
+<button onclick="next()">Siguiente semana</button>
+
+<script>
+let week = 0;
+
+const lessons = [
+  {
+    title: "Semana 1",
+    content: "20% de 100 = 20",
+    question: "¿Cuánto es 10% de 50?",
+    answer: "5"
+  },
+  {
+    title: "Semana 2",
+    content: "x + 5 = 10 → x = 5",
+    question: "x + 3 = 7",
+    answer: "4"
+  }
+];
+
+function render() {
+  const l = lessons[week];
+  document.getElementById("app").innerHTML = `
+    <h2>${l.title}</h2>
+    <p>${l.content}</p>
+    <p><b>${l.question}</b></p>
+    <button onclick="alert('${l.answer}')">Ver respuesta</button>
+  `;
+}
+
+function next() {
+  week = (week + 1) % lessons.length;
+  render();
+}
+
+render();
+</script>
+
+</body>
+</html>
